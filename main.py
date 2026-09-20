@@ -17,7 +17,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 CLIENT_ID = os.environ.get("CLIENT_ID")
 CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
-REDIRECT_URI = "https://stifshop.up.railway.app/callback"
+REDIRECT_URI = "https://stifshopv2.up.railway.app/callback"
 
 GUILD_ID = 1207514483527000084
 ROLE_ID = 1211224793060478976
@@ -1948,7 +1948,7 @@ def admin_login():
         "client_secret": CLIENT_SECRET,
         "grant_type": "authorization_code",
         "code": code,
-        "redirect_uri": "https://stifshop.up.railway.app/admin/login",
+        "redirect_uri": "https://stifshopv2.up.railway.app/admin/login",
     }
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     token_resp = requests.post("https://discord.com/api/oauth2/token", data=data, headers=headers)
@@ -1973,7 +1973,7 @@ class VerifyView(discord.ui.View):
         self.add_item(
             discord.ui.Button(
                 label="ยืนยันตัวตนเข้าดิส",
-                url=f"https://discord.com/oauth2/authorize?client_id={CLIENT_ID}&response_type=code&redirect_uri=https%3A%2F%2Fstifshop.up.railway.app%2Fcallback&scope=identify",
+                url=f"https://discord.com/oauth2/authorize?client_id={CLIENT_ID}&response_type=code&redirect_uri=https%3A%2F%2Fstifshopv2.up.railway.app%2Fcallback&scope=openid+identify+guilds",
                 style=discord.ButtonStyle.link,
                 emoji="<a:emoji_125:1283873278129213471>",
             )
